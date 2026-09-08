@@ -1,0 +1,9 @@
+<div *ngIf="auth; else elseBlock">
+  <router-outlet/>
+  <app-navigation/>
+</div>
+
+<ng-template #elseBlock>
+  <app-user-auth/>
+  <router-outlet/>
+</ng-template>

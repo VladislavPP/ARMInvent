@@ -1,0 +1,34 @@
+<div class="content">
+  <div>
+    <div class="card">
+      <div class="card-body">
+        <form [formGroup] = "form">
+          <h1 class="text-center" style="color: white">Введіть інформацію про працівника</h1>
+            <input type="text" name="fio_full" placeholder="П.І.П-б (повне)" formControlName="fio_full" style="width: 100%; margin-bottom: 5px">
+              <div class="field-message" *ngIf="fio_full.errors">
+                <h6 class="input-error"><small><small>Поле має містити від 5 до 100 символів</small></small></h6>
+              </div>
+          <br>
+            <input type="text" name="fio_small" placeholder="П.І.П-б (скорочене)" formControlName="fio_small" style="width: 50%; margin-bottom: 5px">
+              <div class="field-message" *ngIf="fio_small.errors">
+                <h6 class="input-error"><small><small>Поле має містити від 5 до 50 символів</small></small></h6>
+              </div>
+          <br>
+            <input type="text" name="position_full" placeholder="Посада (повна)" formControlName="position_full" style="width: 100%; margin-bottom: 5px">
+              <div class="field-message" *ngIf="position_full.errors">
+                <h6 class="input-error"><small><small>Поле має містити від 5 до 100 символів</small></small></h6>
+              </div>
+          <br>
+            <input type="text" name="position_small" placeholder="Посада (скорочено)" formControlName="position_small" style="width: 50%; margin-bottom: 5px">
+              <div class="field-message" *ngIf="position_small.errors">
+                <h6 class="input-error"><small><small>Поле має містити від 5 до 50 символів</small></small></h6>
+              </div>
+          <br>
+            <button [disabled]="!form.valid" class="btn btn-dark btn-block" (click)="edit ? updateWorker() : saveWorker()">
+              Зберегти
+            </button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

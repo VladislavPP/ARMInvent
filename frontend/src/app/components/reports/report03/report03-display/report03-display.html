@@ -1,0 +1,53 @@
+<div class="content">
+  <div class="card">
+
+    <div>
+      <h2 style="text-align: center">Матеріально-відповідальні особи (R03)</h2>
+    </div>
+
+    <h6>Дата переміщення</h6>
+    <div>
+      <input style="display: inline" class="text-field__input" id="date" type="date" value="{{onDatePlaceholder}}" (change)="OnDateChange()"/> <!--value="2017-06-01"-->
+      <button style="width: 150px; display: inline; margin-left: 3px; height: 35px" type="button" class="button-actions" (click)="genReport03()">Згенерувати звіт</button>
+    </div>
+
+
+    <table class="table table-striped table-hover table-dark" style="margin-top: 10px">
+      <thead>
+      <tr>
+        <th scope="col" style="width: 10%">Дата переміщення</th>
+        <th scope="col" style="width: 35%">Найменування обладнання</th>
+        <th scope="col" style="width: 10%">Інвентарний номер</th>
+        <th scope="col" style="width: 10%">Серійний номер</th>
+        <th  scope="col" style="width: 35%">П.І.П-б. прцівника</th>
+      </tr>
+      </thead>
+
+      <tbody class="table table-dark">
+      <tr class="row-hover" *ngFor="let tReportData of reportData | paginate: {
+                                                                    itemsPerPage: tableSize,
+                                                                    currentPage: page,
+                                                                    totalItems: count
+    }">
+        <td>{{tReportData.OperationsListDate}}</td>
+        <td>{{tReportData.EquipmentsValue}}</td>
+        <td>{{tReportData.EquipmentsInventN}}</td>
+        <td>{{tReportData.EquipmentsSerialN}}</td>
+        <td>{{tReportData.WorkersFIOFull}}</td>
+      </tr>
+      </tbody>
+    </table>
+
+    <!--PAGINATION-->
+    <div class="d-flex justify-content-center footer">
+      <div *ngIf="buttonGenFile == true" style="position: absolute; left: 0px">
+        <button type="button" class="button-actions" (click)="report03XLSX()">Передати в EXCEL</button>
+      </div>
+      <pagination-controls
+        previousLabel="Попередня"
+        nextLabel="Наступна"
+        (pageChange)="onTableDataChange($event)">
+      </pagination-controls>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,134 @@
+<div class="leftNav-fon leftNav-font leftNav-pos withoutPrint">
+  <div class="accordion accordion-flush" id="accordionFlushExample">
+
+    <!--ДОВІДНИКИ-->
+    <div class="accordion-item">
+      <div *ngIf="ARM1_LIB == true">
+        <h2 class="accordion-header" id="flush-heading1">
+          <button class="accordion-button collapsed bg-black text-white subLevel-pos" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapse1" aria-expanded="false" aria-controls="flush-collapse1">
+            Довідники
+          </button>
+        </h2>
+      </div>
+
+      <div id="flush-collapse1" class="accordion-collapse collapse" aria-labelledby="flush-heading1" data-bs-parent="#accordionFlushExample">
+        <div *ngIf="ARM1_EQP_LST == true">
+          <a routerLink="Equipments/List">
+            <h5 class="subLevel">Обладнання</h5>
+          </a>
+        </div>
+
+        <div *ngIf="ARM1_WRK_LST == true">
+          <a routerLink="Workers/List">
+            <h5 class="subLevel">Працівники</h5>
+          </a>
+        </div>
+
+        <div *ngIf="ARM1_SRV_LST == true">
+          <a routerLink="ServiceOrganizations/List">
+            <h5 class="subLevel">Сервісні організації</h5>
+          </a>
+        </div>
+        <div *ngIf="ARM1_OPL_LST == true">
+          <a routerLink="OperationsList/List">
+            <h5 class="subLevel">Всі операції</h5>
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <!--ОПЕРАЦІЇ-->
+    <div class="accordion-item">
+      <div *ngIf="ARM1_OPL == true">
+        <h2 class="accordion-header" id="flush-heading2">
+          <button class="accordion-button collapsed bg-black text-white subLevel-pos" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapse2" aria-expanded="false" aria-controls="flush-collapse2">
+            Операції
+          </button>
+        </h2>
+      </div>
+      <div id="flush-collapse2" class="accordion-collapse collapse" aria-labelledby="flush-heading2" data-bs-parent="#accordionFlushExample">
+        <div class="accordion-body" *ngIf="ARM1_EQP_ADD == true">
+          <a routerLink="Equipments/Add/New">
+            <h5 class="subLevel">Отримання обладнання</h5>
+          </a>
+        </div>
+        <div class="accordion-body" *ngIf="ARM1_OPL_ADD == true">
+          <a routerLink="OperationsList/Add">
+            <h5 class="subLevel">Рух обладнання</h5>
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <!--ЗВІТНІСТЬ-->
+    <div class="accordion-item">
+      <div *ngIf="ARM1_RPT == true">
+        <h2 class="accordion-header" id="flush-heading3">
+          <button class="accordion-button collapsed bg-black text-white subLevel-pos" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapse3" aria-expanded="false" aria-controls="flush-collapse3">
+            Звітність
+          </button>
+        </h2>
+      </div>
+      <div id="flush-collapse3" class="accordion-collapse collapse" aria-labelledby="flush-heading3" data-bs-parent="#accordionFlushExample">
+        <div class="accordion-body">
+          <a routerLink="Reports/List">
+            <h5 class="subLevel">Сторінка звітів</h5>
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <!--Адмінпанель-->
+    <div class="accordion-item">
+      <div *ngIf="ADM_LIB == true">
+        <h2 class="accordion-header" id="flush-heading4">
+          <button class="accordion-button collapsed bg-black text-white subLevel-pos" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapse4" aria-expanded="false" aria-controls="flush-collapse4">
+            Адмінпанель
+          </button>
+        </h2>
+      </div>
+      <div id="flush-collapse4" class="accordion-collapse collapse" aria-labelledby="flush-heading4" data-bs-parent="#accordionFlushExample">
+        <div *ngIf="ADM_RLE_LST == true">
+          <a routerLink="Roles/List">
+            <h5 class="subLevel">Ролі</h5>
+          </a>
+        </div>
+        <div *ngIf="ADM_USR_LST == true">
+          <a routerLink="Users/List">
+            <h5 class="subLevel">Користувачі</h5>
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <br>
+
+    <div class="footer">
+      <h6 style="color:white;">Powered by:</h6>
+
+      <div style="display:inline;">
+        <a href="https://angular.dev/">
+          <img src="./AngularLogo.png" alt="Angular" width="60px" height="25px" style="margin-right: 5px">
+        </a>
+        <a href="https://nodejs.org/">
+          <img src="./NodeJSLogo.png" alt="NodeJS" width="60px" height="25px" style="margin-right: 5px">
+        </a>
+        <a href="https://www.mysql.com/">
+          <img src="./MySQLLogo.png" alt="MySQL" width="60px" height="25px" style="margin-bottom: 5px; margin-right: 5px">
+        </a>
+        <a href="https://getbootstrap.com/">
+          <img src="./BootstrapLogo.png" alt="Boostrap" width="60px" height="25px" style="margin-right: 5px">
+        </a>
+      </div>
+
+      <br><br>
+      <h6 style="color:white;">WEB-Developer:</h6>
+      <div style="display:inline;">
+        <a href="http://www.pvp.in.ua/">
+          <img src="./LogoPVP.png" alt="logo" width="50px" height="25px">
+        </a>
+      </div>
+    </div>
+
+  </div>
+</div>

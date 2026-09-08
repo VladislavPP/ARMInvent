@@ -1,0 +1,53 @@
+<div class="content">
+  <div>
+    <div class="card">
+      <div class="card-body">
+        <form>
+          <h1 class="text-center" style="color: white">Введіть інформацію по вилученню запису з бази</h1>
+
+          <!--ТИП ОЕПАРЦІЇ-->
+          <h6 style="color: white">Тип операції</h6>
+          <select name="typeOperation" (change)="ChangeTypeOperation($event)" class="form-control" style="width: 15%">
+            <option value="0" selected>{{typeOpp}}</option>
+            <option value="5">ВИДАЛЕННЯ</option>
+            <option value="6">СПИСАННЯ</option>
+          </select>
+          <br>
+
+          <!--ДАТА ПЕРЕМІЩЕННЯ-->
+          <h6 style="color: white">Дата переміщення</h6>
+          <input class="text-field__input" id="date" type="date" value="{{onDatePlaceholder}}" (change)="OnDateChange()"/> <!--value="2017-06-01"-->
+          <br><br>
+
+          <!--НАЙМЕНУВАННЯ ОБЛАДНАННЯ-->
+          <h6 style="color: white">Найменування обладнання</h6>
+          <input type="hidden" name="id_equipment" [(ngModel)]="idEquipment">
+          <input type="text" name="equipments_value" [(ngModel)]="equipmentsValue" placeholder="Найменування обладнання" class="form-control" readonly>
+          <br>
+
+          <!--ТИП ОПЕРАЦІЇ - СПИСАННЯ-->
+          <div *ngIf="typeOperation6; else notTypeOperation6">
+            <h6 style="color: white">Сервісна організація</h6>
+            <input type="hidden" name="id_service_organization" [(ngModel)]="idServiceOrganization">
+            <input type="text" name="service_organization_title" [(ngModel)]="serviceOrganizationTitle" placeholder="Найменування сервісної організації" class="form-control" (click)="openModalServiceOrganizations()" readonly>
+            <app-sublevel-service-organizations-delete *ngIf="modalServiceOrganizationVisible" (closeModal)="closeModalServiceOrganizations()"></app-sublevel-service-organizations-delete>
+          </div>
+          <ng-template #notTypeOperation6>
+
+          </ng-template>
+
+          <!--ПРИМІТКИ-->
+          <br>
+          <div class="form-group input-field">
+            <p><textarea name="MoveEquipmentsNote" cols="60" rows="5" [(ngModel)]="note" placeholder="Примітки (причина вилучення, підстава списання)"></textarea></p>
+          </div>
+
+          <!--ЗБЕРЕГТИ-->
+          <button [disabled]="!form.valid" class="btn btn-dark btn-block" (click)="dataVerification()">
+            Зберегти
+          </button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

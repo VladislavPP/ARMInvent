@@ -1,0 +1,36 @@
+.content{
+  position: absolute;
+  top: 5%;
+  left: 10%;
+  width: 90%;//100%-left
+  background-color: black;
+  height: 95%;//100%-top
+}
+
+.buttonFileCreate{
+  position: fixed;
+  bottom: 0px;
+  width: 100%;
+  background-color: black;
+  border-top-width: 4px;
+  border-top-style: solid;
+  border-top-color: white;
+}
+
+.btnH:hover {
+  color: black !important;
+}
+
+@media print {
+  .withoutPrint{
+    display: none;
+  }
+
+  .content {
+    position: absolute;
+  }
+
+  .leftNav-pos{
+    display: none;
+  }
+}

@@ -1,0 +1,44 @@
+.leftNav-fon{
+  background-color: black;
+}
+
+.leftNav-font{
+  color: white;
+}
+
+.leftNav-pos{
+  position: fixed;
+  top: 5%;
+  height: 100%;
+  width: 10%;
+}
+
+.accordion-button::after {
+  filter: invert(1);
+}
+
+.accordion-button:not(.collapsed)::after {
+  filter: invert(1);
+}
+
+.subLevel{
+  text-decoration: none !important;
+}
+
+.subLevel:hover{
+  background-color: skyblue;
+  border-bottom: black 2px dotted;
+  text-decoration: none;
+}
+
+.footer {
+  position: fixed;
+  bottom: 5px;
+  width: 11%;
+}
+
+@media print {
+  .withoutPrint{
+    display: none;
+  }
+}

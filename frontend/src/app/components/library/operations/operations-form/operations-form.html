@@ -1,0 +1,71 @@
+<div class="content">
+  <div>
+    <div class="card">
+      <div class="card-body">
+        <form>
+          <h1 class="text-center" style="color: white">Введіть інформацію по переміщенню</h1>
+
+          <!--ТИП ОЕПАРЦІЇ-->
+          <h6 style="color: white">Тип операції</h6>
+          <select name="typeOperation" (change)="ChangeTypeOperation($event)" class="form-control" style="width: 15%">
+            <option value="0" selected>{{typeOpp}}</option>
+            <option value="3">ВНУТРІШНЄ ПЕРЕМІЩЕННЯ</option>
+            <option value="4">ВІДПРАВКА НА РЕМОНТ</option>
+          </select>
+          <br>
+
+          <!--ДАТА ПЕРЕМІЩЕННЯ-->
+          <h6 style="color: white">Дата переміщення</h6>
+          <input class="text-field__input" id="date" type="date" value="{{onDatePlaceholder}}" (change)="OnDateChange()"/> <!--value="2017-06-01"-->
+          <br><br>
+
+          <!--НАЙМЕНУВАННЯ ОБЛАДНАННЯ-->
+          <h6 style="color: white">Найменування обладнання</h6>
+          <input type="hidden" name="id_equipment" [(ngModel)]="idEquipment">
+          <input type="text" name="equipments_value" [(ngModel)]="equipmentsValue" placeholder="Найменування обладнання" class="form-control" (click)="openModalEquipments()" readonly>
+
+          <div *ngIf="typeOperationAdd; else notTypeOperationAdd">
+            <app-sublevel-equipments *ngIf="modalEquipmentsVisible" (closeModal)="closeModalEquipments()"></app-sublevel-equipments>
+          </div>
+          <ng-template #notTypeOperationAdd>
+
+          </ng-template>
+          <br>
+
+          <!--ТИП ОПЕРАЦІЇ - ВНУТРІШНЄ ПЕРЕМІЩЕННЯ-->
+          <div *ngIf="typeOperation3; else notTypeOperation3">
+            <h6 style="color: white">П.І.П-б кому переміщується</h6>
+            <input type="hidden" name="id_worker" [(ngModel)]="idWorker">
+            <input type="text" name="workers_fio_full" [(ngModel)]="workerFIOFull" placeholder="Прізвище, ім'я та по-батькові" class="form-control" (click)="openModalWorkers()" readonly>
+            <app-sublevel-workers *ngIf="modalWorkersVisible" (closeModal)="closeModalWorkers()"></app-sublevel-workers>
+          </div>
+          <ng-template #notTypeOperation3>
+
+          </ng-template>
+
+          <!--ТИП ОПЕРАЦІЇ - ВІДПРАВКА НА РЕМОНТ-->
+          <div *ngIf="typeOperation4; else notTypeOperation4">
+            <h6 style="color: white">Сервісна організація</h6>
+            <input type="hidden" name="id_service_organization" [(ngModel)]="idServiceOrganization">
+            <input type="text" name="service_organization_title" [(ngModel)]="serviceOrganizationTitle" placeholder="Найменування сервісної організації" class="form-control" (click)="openModalServiceOrganizations()" readonly>
+            <app-sublevel-service-organizations *ngIf="modalServiceOrganizationVisible" (closeModal)="closeModalServiceOrganizations()"></app-sublevel-service-organizations>
+          </div>
+          <ng-template #notTypeOperation4>
+
+          </ng-template>
+
+          <!--ПРИМІТКИ-->
+          <br>
+          <div class="form-group input-field">
+            <p><textarea name="MoveEquipmentsNote" cols="60" rows="5" [(ngModel)]="note" placeholder="Примітки"></textarea></p>
+          </div>
+
+          <!--ЗБЕРЕГТИ-->
+          <button [disabled]="!form.valid" class="btn btn-dark btn-block" (click)="dataVerification()">
+            Зберегти
+          </button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,30 @@
+.content{
+  position: absolute;
+  top: 5%;
+  left: 10%;
+  width: 90%;//100%-left
+  background-color: black;
+  height: 95%;//100%-top
+}
+
+.input-error{
+  color: yellow;
+  font-variant: small-caps;
+}
+
+.input-field{
+  margin: 3px;
+}
+
+.card-body {
+  cursor: pointer;
+  background-color: black;
+}
+
+.card:hover{
+  background-color: white;
+}
+
+.btn:hover{
+  color: yellow;
+}

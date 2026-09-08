@@ -1,0 +1,43 @@
+<div class="content">
+  <div class="text-center">
+    <h2 style="color: white">ЗВІТ "ІСТОРІЯ РУХУ ОБЛАДНАННЯ" <br> {{reportData[0].EquipmentsValue}}. Інвентарний номер - {{reportData[0].EquipmentsInventN}}. Станом на {{date}}</h2>
+  </div>
+  <table class="table table-dark">
+    <thead>
+    <tr>
+      <th scope="col" style="width: 5%">
+        Дата переміщення
+      </th>
+      <th scope="col" style="width: 20%">
+        Тип операції
+      </th>
+      <th scope="col" style="width: 20%">
+        П.І.П-б працівника (повне)
+      </th>
+      <th scope="col" style="width: 20%">
+        Посада працівника (повна)
+      </th>
+      <th scope="col" style="width: 20%">
+       Найменування сервісної орагнізації
+      </th>
+
+
+    </tr>
+    </thead>
+
+    <tbody class="table">
+    <tr id="values" *ngFor="let tReportData of reportData">
+      <td>{{tReportData.OperationsListDate}}</td>
+      <td>{{tReportData.OperationsListTypeOperation | typeOperation}}</td>
+      <td>{{tReportData.WorkersFIOFull}}</td>
+      <td>{{tReportData.WorkersPositionFull}}</td>
+      <td>{{tReportData.ServiceOrganizationsTitle}}</td>
+    </tr>
+    </tbody>
+
+    <div class="buttonFileCreate withoutPrint">
+      <button class="btn btn-outline-primary btnH" style="background-color: gold" (click)="generateFile('txt')">Сформувати *.txt-файл</button>
+      <button class="btn btn-outline-primary btnH" style="background-color: gold" (click)="generateFile('pdf')">Сформувати *.pdf-файл</button>
+    </div>
+  </table>
+</div>

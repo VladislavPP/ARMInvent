@@ -1,0 +1,40 @@
+<div class="content">
+  <div class="text-center">
+    <h2 style="color: white">ЗВІТ "ОБЛАДНАННЯ ЗАКРІПЛЕНЕ ЗА ПРАЦІВНИКОМ" <br> {{reportData[0].WorkersFIOFull}}. {{reportData[0].WorkersPositionFull}}. Станом на {{date}}</h2>
+  </div>
+  <table class="table table-dark">
+    <thead>
+    <tr>
+      <th scope="col" style="width: 50%">
+        Найменування обладнання
+      </th>
+
+      <th scope="col" style="width: 20%">
+        Інвентарний номер
+      </th>
+
+      <th scope="col" style="width: 20%">
+        Серійний номер
+      </th>
+
+      <th scope="col" style="width: 10%">
+        Дата переміщення
+      </th>
+    </tr>
+    </thead>
+
+    <tbody class="table">
+    <tr id="values" *ngFor="let tReportData of reportData">
+      <td>{{tReportData.EquipmentsValue}}</td>
+      <td>{{tReportData.EquipmentsInventN}}</td>
+      <td>{{tReportData.EquipmentsSerialN}}</td>
+      <td>{{tReportData.OperationsListDate}}</td>
+    </tr>
+    </tbody>
+  </table>
+
+  <div class="buttonFileCreate withoutPrint">
+    <button class="btn btn-outline-primary btnH" style="background-color: gold" (click)="generateFile('txt')">Сформувати *.txt-файл</button>
+    <button class="btn btn-outline-primary btnH" style="background-color: gold" (click)="generateFile('pdf')">Сформувати *.pdf-файл</button>
+  </div>
+</div>

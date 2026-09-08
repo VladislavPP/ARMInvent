@@ -1,0 +1,94 @@
+<div class="content">
+  <table class="table table-striped table-hover table-dark" style="width: 100%">
+    <thead>
+
+    <!--SEARCH-->
+    <tr>
+      <th scope="col" colspan="4">
+        <div class="search__form">
+          <input class="web__search" type="text" placeholder="Значення пошуку" name="name" [(ngModel)]="this.searchValue">
+          <svg class="icon-1" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" (click)="searchRows('dumping')">
+            <path d="M11.46.146A.5.5 0 0 0 11.107 0H4.893a.5.5 0 0 0-.353.146L.146 4.54A.5.5 0 0 0 0 4.893v6.214a.5.5 0 0 0 .146.353l4.394 4.394a.5.5 0 0 0 .353.146h6.214a.5.5 0 0 0 .353-.146l4.394-4.394a.5.5 0 0 0 .146-.353V4.893a.5.5 0 0 0-.146-.353L11.46.146zm-6.106 4.5L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 1 1 .708-.708z"/>
+          </svg>
+          <svg class="icon-2" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 18 18" (click)="searchRows('searchValue')">
+            <path d="M15.5 14h-.79l-.28-.27A6.471 6.471 0 0 0 16 9.5 6.5 6.5 0 1 0 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"></path>
+          </svg>
+        </div>
+      </th>
+
+      <th scope="col" style="text-align: center">
+        <button class="button-CRUD">
+          <a class="nav-link" routerLink="/Workers/Add" routerLinkActive="active">
+            Додати
+          </a>
+        </button>
+      </th>
+    </tr>
+
+    <!--SORT-->
+    <tr>
+      <th scope="col" style="width: 19%">
+        П.І.П-б (повне)
+      </th>
+
+      <th scope="col" style="width: 19%">
+        П.І.П-б (скорочено)
+      </th>
+
+      <th scope="col" style="width: 19%">
+        Посада (повністю)
+      </th>
+
+      <th scope="col" style="width: 19%">
+        Посада (скорочено)
+      </th>
+
+      <th scope="col" style="width: 14%; text-align: center">Дії</th>
+    </tr>
+    </thead>
+
+    <!--FILLING-->
+    <tbody class="table table-dark">
+    @for (worker of workers() | search: searchCondition | paginate: {
+      itemsPerPage: tableSize,
+      currentPage: page,
+      totalItems: count
+    }; track worker.id){
+    <tr>
+      <td>{{worker.fio_full}}</td>
+      <td>{{worker.fio_small}}</td>
+      <td>{{worker.position_full}}</td>
+      <td>{{worker.position_small}}</td>
+      <td style="text-align: center">
+        <button class='button-actions' [routerLink]="['/Reports/Report01/Display/', worker.id]">
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-info-circle" viewBox="0 0 16 16">
+            <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
+            <path d="M8.93 6.588l-2.29.287-.082.38.45.083c.294.07.352.176.288.469l-.738 3.468c-.194.897.105 1.319.808 1.319.545 0 1.178-.252 1.465-.598l.088-.416c-.2.176-.492.246-.686.246-.275 0-.375-.193-.304-.533L8.93 6.588zM9 4.5a1 1 0 1 1-2 0 1 1 0 0 1 2 0z"/>
+          </svg>
+        </button>
+        <button class='button-actions' [routerLink]="['/Workers/Edit/', worker.id]">
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-pen" viewBox="0 0 16 16">
+            <path d="M13.498.795l.149-.149a1.207 1.207 0 1 1 1.707 1.708l-.149.148a1.5 1.5 0 0 1-.059 2.059L4.854 14.854a.5.5 0 0 1-.233.131l-4 1a.5.5 0 0 1-.606-.606l1-4a.5.5 0 0 1 .131-.232l9.642-9.642a.5.5 0 0 0-.642.056L6.854 4.854a.5.5 0 1 1-.708-.708L9.44.854A1.5 1.5 0 0 1 11.5.796a1.5 1.5 0 0 1 1.998-.001zm-.644.766a.5.5 0 0 0-.707 0L1.95 11.756l-.764 3.057 3.057-.764L14.44 3.854a.5.5 0 0 0 0-.708l-1.585-1.585z"/>
+          </svg>
+        </button>
+        <button class='button-actions' (click)="deleteWorker(worker.id)">
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-trash" viewBox="0 0 16 16">
+            <path d="M5.5 5.5A.5.5 0 0 1 6 6v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm2.5 0a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm3 .5a.5.5 0 0 0-1 0v6a.5.5 0 0 0 1 0V6z"/>
+            <path fill-rule="evenodd" d="M14.5 3a1 1 0 0 1-1 1H13v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V4h-.5a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1H6a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1h3.5a1 1 0 0 1 1 1v1zM4.118 4L4 4.059V13a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V4.059L11.882 4H4.118zM2.5 3V2h11v1h-11z"/>
+          </svg>
+        </button>
+      </td>
+    </tr>
+    }
+    </tbody>
+  </table>
+
+  <!--PAGINATION-->
+  <div class="d-flex justify-content-center footer">
+    <pagination-controls
+      previousLabel="Попередня"
+      nextLabel="Наступна"
+      (pageChange)="onTableDataChange($event)">
+    </pagination-controls>
+  </div>
+</div>

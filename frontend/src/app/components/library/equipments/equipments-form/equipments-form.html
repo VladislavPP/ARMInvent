@@ -1,0 +1,46 @@
+<div class="content">
+  <div>
+    <div class="card">
+      <div class="card-body">
+        <h1 class="text-center" style="color: white">{{titleOpp}}</h1>
+        <!--ТИП ОПЕРАЦІЇ - ПРИДБАННЯ-->
+        <div *ngIf="typeOperation2; else notTypeOperation2">
+          <h6 style="color: white">Сервісна організація</h6>
+          <input type="hidden" name="id_service_organization" [(ngModel)]="idServiceOrganization">
+          <input type="text" name="service_organization_title" [(ngModel)]="serviceOrganizationTitle" placeholder="Найменування сервісної організації" class="form-control" (click)="openModalServiceOrganizations()" readonly>
+          <app-sublevel-service-organizations-buy *ngIf="modalServiceOrganizationVisible" (closeModal)="closeModalServiceOrganizations()"></app-sublevel-service-organizations-buy>
+        </div>
+        <ng-template #notTypeOperation2>
+
+        </ng-template>
+        <br>
+        <form [formGroup] = "form">
+          <input type="text" name="fio_full" placeholder="Найменування" formControlName="title" style="width: 100%; margin-bottom: 5px">
+          <div class="field-message" *ngIf="title.errors">
+            <h6 class="input-error"><small><small>Поле має містити від 5 до 100 символів</small></small></h6>
+          </div>
+          <br>
+          <input type="text" name="fio_small" placeholder="Інвентарний номер" formControlName="invent_n" style="width: 20%; margin-bottom: 5px">
+          <div class="field-message" *ngIf="invent_n.errors">
+            <h6 class="input-error"><small><small>Поле має містити не більше 50 символів</small></small></h6>
+          </div>
+          <br>
+          <input type="text" name="position_full" placeholder="Серійний номер" formControlName="serial_n" style="width: 50%; margin-bottom: 5px">
+          <div class="field-message" *ngIf="serial_n.errors">
+            <h6 class="input-error"><small><small>Поле має містити не більше 50 символів</small></small></h6>
+          </div>
+          <br>
+          <div class="field-message" *ngIf="edit">
+            <div class="btn-group" role="group" aria-label="Basic radio toggle button group">
+              <input type="radio" class="btn-check" name="radio1" id="radio1" [checked]="selectedRows[checkedNew]" (click)="radioButtonNew()">
+              <label class="btn btn-outline-primary" for="radio1">Нове</label>
+            </div>
+          </div>
+          <button [disabled]="!form.valid" class="btn btn-dark btn-block" (click)="edit ? updateEquipment() : saveEquipment()">
+            Зберегти
+          </button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

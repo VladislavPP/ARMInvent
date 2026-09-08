@@ -1,0 +1,41 @@
+.content{
+  position: absolute;
+  top: 5%;
+  left: 10%;
+  width: 90%;//100%-left
+  background-color: black;
+  height: 95%;//100%-top
+}
+
+.footer{
+  color: white;
+  position: fixed;
+  bottom: 0;
+  height: 30px;
+  left: 10%;
+  width: 90%;//100%-left
+  background-color: black;
+}
+
+.button-actions{
+  background-color: black;
+  color: white;
+}
+
+.button-actions:hover{
+  background-color: skyblue;
+}
+
+@media print {
+  .withoutPrint{
+    display: none;
+  }
+
+  .content {
+    position: absolute;
+  }
+
+  .leftNav-pos{
+    display: none;
+  }
+}

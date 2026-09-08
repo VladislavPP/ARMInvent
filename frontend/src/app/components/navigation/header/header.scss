@@ -1,0 +1,38 @@
+.header-fon{
+  background-color: black;
+}
+
+.header-font{
+  color: white;
+}
+
+.header-pos{
+  position: fixed !important;
+  width: 100%;
+  height: 5%;
+}
+
+.logo{
+  left: 0px;
+}
+
+.shake {
+  display:block;
+  border: 1px solid transparent;
+  border-radius: 100%;
+  //background-image: url(http://xn----8sbacs4bcidfthwu.xn--p1ai/wp-includes/images/call-img.png);
+  //background-repeat: no-repeat;
+  background-size: cover;
+  box-sizing: border-box;
+}
+
+.shake:hover {
+  border: 2px dotted white;
+  transition: 0.1s;
+}
+
+@media print {
+  .withoutPrint{
+    display: none;
+  }
+}

@@ -1,0 +1,24 @@
+<div class="content">
+  <div>
+    <div class="card">
+      <div class="card-body">
+        <form [formGroup] = "form">
+          <h1 class="text-center" style="color: white">Введіть інформацію про роль</h1>
+          <input type="text" name="value" placeholder="Найменування" formControlName="value" style="width: 100%; margin-bottom: 5px">
+          <div class="field-message" *ngIf="value.errors">
+            <h6 class="input-error"><small><small>Поле має містити від 5 до 100 символів</small></small></h6>
+          </div>
+          <br>
+          <input type="text" name="name" placeholder="Код ролі" formControlName="name" style="width: 25%; margin-bottom: 5px">
+          <div class="field-message" *ngIf="name.errors">
+            <h6 class="input-error"><small><small>Поле має містити від 5 до 25 символів</small></small></h6>
+          </div>
+          <br>
+          <button [disabled]="!form.valid" class="btn btn-dark btn-block" (click)="edit ? updateRole() : saveRole()">
+            Зберегти
+          </button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

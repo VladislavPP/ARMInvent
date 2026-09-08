@@ -1,0 +1,53 @@
+<div class="content">
+  <div class="accordion" id="accordionExample">
+
+    <!--Звичайні звіти-->
+    <div class="accordion-item">
+      <div>
+        <h5 class="accordion-header">
+          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseReport1" aria-expanded="false" aria-controls="collapseReport1">
+            <b>Звичайні звіти</b>
+          </button>
+        </h5>
+      </div>
+      <div id="collapseReport1" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+        <div class="accordion-body">
+          <a routerLink="/Reports/Report01">
+            <h6 class="subLevel">Обладнання закріплене за працівником</h6>
+          </a>
+        </div>
+        <div class="accordion-body">
+          <a routerLink="/Reports/Report02">
+            <h6 class="subLevel">Історія руху обладнання</h6>
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <!--Періодичні звіти-->
+    <div class="accordion-item">
+      <div>
+        <h5 class="accordion-header">
+          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseReport2" aria-expanded="false" aria-controls="collapseReport2">
+            <b>Періодичні звіти</b>
+          </button>
+        </h5>
+      </div>
+      <div id="collapseReport2" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+        <div class="accordion-body">
+          <a routerLink="/Reports/Report03">
+            <h6 class="subLevel">Матеріально-відповідальні особи</h6>
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <!--Сформовані звіти-->
+    <div class="accordion-body">
+      <a routerLink="/Reports/Created">
+        <h6 class="subLevel">СФОРМОВАНІ ЗВІТИ</h6>
+      </a>
+    </div>
+
+  </div>
+</div>

@@ -1,0 +1,29 @@
+<div class="content">
+  <div>
+    <div class="card">
+      <div class="card-body">
+        <form [formGroup] = "form">
+          <h1 class="text-center" style="color: white">Назва організації</h1>
+          <input type="text" name="title" placeholder="Назва організації" formControlName="title" style="width: 100%; margin-bottom: 5px">
+          <div class="field-message" *ngIf="title.errors">
+            <h6 class="input-error"><small><small>Поле має містити від 5 до 50 символів</small></small></h6>
+          </div>
+          <br>
+          <input type="text" name="adress" placeholder="Адреса розташування" formControlName="adress" style="width: 100%; margin-bottom: 5px">
+          <div class="field-message" *ngIf="adress.errors">
+            <h6 class="input-error"><small><small>Поле має містити не більше 100 символів</small></small></h6>
+          </div>
+          <br>
+          <input type="text" name="services_provided" placeholder="Послуги, що надаються" formControlName="services_provided" style="width: 100%; margin-bottom: 5px">
+          <div class="field-message" *ngIf="services_provided.errors">
+            <h6 class="input-error"><small><small>Поле має містити не більше 250 символів</small></small></h6>
+          </div>
+          <br>
+          <button [disabled]="!form.valid" class="btn btn-dark btn-block" (click)="edit ? updateServiceOrganization() : saveServiceOrganization()">
+            Зберегти
+          </button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
